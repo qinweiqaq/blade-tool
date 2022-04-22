@@ -208,6 +208,11 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>blade-release</id>
+            <name>Release Repository</name>
+            <url>http://nexus.bladex.vip/repository/maven-releases/</url>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -221,14 +226,20 @@
     </pluginRepositories>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
         <repository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <!--这里面的名字要跟 setting.xml 文件中 servers 里面的一致-->
+            <!--这个是 release 库的发布地址-->
+            <id>nexus-releases</id>
+            <name>admin</name>
+            <url>http://223.93.131.64:8861/repository/maven-releases/</url>
         </repository>
+        <snapshotRepository>
+            <!--这里面的名字要跟 setting.xml 文件中 servers 里面的一致-->
+            <!--这个是 snapshot 库的发布地址-->
+            <id>nexus-snapshots</id>
+            <name>admin</name>
+            <url>http://223.93.131.64:8861/repository/maven-snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <profiles>
